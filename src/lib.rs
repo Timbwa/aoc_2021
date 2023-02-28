@@ -17,9 +17,6 @@ pub struct Cli {
     test: bool,
 }
 
-pub struct App {
-    pub days: Vec<Box<dyn Day>>,
-}
 pub fn run(cli: &mut Cli) -> Result<()> {
     // Append new Days to this vector
     let days: Vec<Box<dyn Day>> = vec![Box::new(Day01 {})];
