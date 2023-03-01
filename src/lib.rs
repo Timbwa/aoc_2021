@@ -2,8 +2,9 @@ pub mod days;
 
 use anyhow::Result;
 use clap::Parser;
+use days::Day02;
 
-use crate::days::{Day, Day01};
+use crate::days::*;
 
 /// Rust Program for running AOC solutions
 #[derive(Parser, Debug)]
@@ -19,7 +20,7 @@ pub struct Cli {
 
 pub fn run(cli: &mut Cli) -> Result<()> {
     // Append new Days to this vector
-    let days: Vec<Box<dyn Day>> = vec![Box::new(Day01 {})];
+    let days: Vec<Box<dyn Day>> = vec![Box::new(Day01 {}), Box::new(Day02 {})];
 
     if cli.run_latest {
         run_day(days.last().unwrap().as_ref(), cli.test)?;
