@@ -36,10 +36,18 @@ pub fn run(cli: &mut Cli) -> Result<()> {
 
 fn run_day(day: &dyn Day, is_test: bool) -> Result<()> {
     let content_lines = day.read_input(is_test)?;
-    let result_1 = day.solution_1(&content_lines);
-    let result_2 = day.solution_2(&content_lines);
 
-    println!("Result 1 is {result_1:?}\nResults 2 is {result_2:?}");
+    let now = std::time::Instant::now();
+    let result_1 = day.solution_1(&content_lines);
+    let elpapsed_1 = now.elapsed();
+
+    let now = std::time::Instant::now();
+    let result_2 = day.solution_2(&content_lines);
+    let elpapsed_2 = now.elapsed();
+
+    println!(
+        "Result 1 is {result_1:?} ({elpapsed_1:?})\nResults 2 is {result_2:?} ({elpapsed_2:?})"
+    );
 
     Ok(())
 }
