@@ -1,5 +1,3 @@
-use std::path::PathBuf;
-
 use super::Day;
 
 pub struct Day01;
@@ -50,17 +48,7 @@ impl Day for Day01 {
         increased_count
     }
 
-    fn file_path(&self, is_test: bool) -> PathBuf {
-        let mut file_path = PathBuf::new();
-        file_path.push("input");
-        let mut file_name = String::from("day_01.txt");
-
-        if is_test {
-            file_name = file_name.replace(".txt", "_test.txt");
-        }
-
-        file_path.push(file_name);
-
-        file_path
+    fn file_name(&self) -> String {
+        String::from("day_01.txt")
     }
 }

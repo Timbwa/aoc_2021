@@ -16,7 +16,21 @@ pub trait Day {
         Ok(content_lines)
     }
 
-    fn file_path(&self, is_test: bool) -> PathBuf;
+    fn file_name(&self) -> String;
+
+    fn file_path(&self, is_test: bool) -> PathBuf {
+        let mut file_path = PathBuf::new();
+        file_path.push("input");
+        let mut file_name = self.file_name();
+
+        if is_test {
+            file_name = file_name.replace(".txt", "_test.txt");
+        }
+
+        file_path.push(file_name);
+
+        file_path
+    }
 
     fn solution_1(&self, lines: &Vec<String>) -> usize;
 
