@@ -19,7 +19,12 @@ pub struct Cli {
 
 pub fn run(cli: &mut Cli) -> Result<()> {
     // Append new Days to this vector
-    let days: Vec<Box<dyn Day>> = vec![Box::new(Day01 {}), Box::new(Day02 {}), Box::new(Day03 {})];
+    let days: Vec<Box<dyn Day>> = vec![
+        Box::new(Day01 {}),
+        Box::new(Day02 {}),
+        Box::new(Day03 {}),
+        Box::new(Day04 {}),
+    ];
 
     if cli.run_latest {
         run_day(days.last().unwrap().as_ref(), cli.test)?;
